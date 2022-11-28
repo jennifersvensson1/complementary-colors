@@ -1,5 +1,6 @@
+
 body {
-    font-family:  Arial;
+    margin: 0;
 }
 
 main {
@@ -7,15 +8,18 @@ main {
     flex-direction: row;
 }
 
+h2 {
+    font-family: 'DM Serif Display', 'Ultra', 'Trebuchet MS';
+    font-size: 8vh;
+}
+
+h3 {
+    font-family: 'DM Serif Display', 'Trebuchet MS';
+    font-size: 4vh;
+}
+
 .colorSection {
-    height: 100vh;
+    height: 90vh;
     width: 50vw;
-}
-
-#firstColor {
-    background-color: bisque;
-}
-
-#secondColor {
-    background-color: cornflowerblue;
+    padding: 5vh;
 }
