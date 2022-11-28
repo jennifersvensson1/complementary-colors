@@ -15,9 +15,9 @@ function init() {
 }
 window.onload = init;
 
-async function getData() {
+async function getData(hex = "") {
     // Get data from the color-names api
-    const response = await fetch('https://api.color.pizza/v1/');
+    const response = await fetch('https://api.color.pizza/v1/' + hex);
     const data = await response.json();
 
     return data.colors;
@@ -32,6 +32,15 @@ function getNewColors() {
 
     // Get complementary color from hsl
     let compHex = getComplementary(color.hsl.h, color.hsl.s, color.hsl.l);
+
+    let compColor = {};
+
+    getData(compHex)
+        .then(data => {
+            compColor = data[0];
+
+            console.log(compColor);
+        });
 }
 
 function getComplementary(h, s, l) {
