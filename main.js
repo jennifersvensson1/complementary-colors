@@ -39,7 +39,15 @@ function getNewColors() {
         .then(data => {
             compColor = data[0];
 
-            console.log(compColor);
+            document.getElementById("firstColor").style.backgroundColor = color.hex;
+            document.getElementById("firstColorTitle").innerHTML = color.name;
+            document.getElementById("firstColorHex").innerHTML = color.hex;
+            document.getElementById("firstColorRGB").innerHTML = "rgb(" + color.rgb.r + ", " + color.rgb.g + ", " + color.rgb.b + ")";
+
+            document.getElementById("secondColor").style.backgroundColor = compColor.hex;
+            document.getElementById("secondColorTitle").innerHTML = compColor.name;
+            document.getElementById("secondColorHex").innerHTML = compColor.hex;
+            document.getElementById("secondColorRGB").innerHTML = "rgb(" + compColor.rgb.r + ", " + compColor.rgb.g + ", " + compColor.rgb.b + ")";
         });
 }
 
