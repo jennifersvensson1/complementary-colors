@@ -1,12 +1,15 @@
 var colors = {};
 
+// Initiates the program
 function init() {
+    // Get initial colors
     getData()
         .then(data => {
             colors = data;
             getNewColors();
         });
     
+    // Add event listener to space button
     document.addEventListener("keyup", (e) => {
         if (e.code === 'Space' || e.key === " ") {
             getNewColors();
@@ -15,14 +18,15 @@ function init() {
 }
 window.onload = init;
 
+// Fetches data from the color-names api
 async function getData(hex = "") {
-    // Get data from the color-names api
     const response = await fetch('https://api.color.pizza/v1/' + hex);
     const data = await response.json();
 
     return data.colors;
 }
 
+// Generates new colors and displays them on the page
 function getNewColors() {  
     // Get random color from randomized index
     let index = Math.floor(Math.random() * colors.length);
@@ -53,6 +57,7 @@ function getNewColors() {
         });
 }
 
+// Calculates complementary color from HSL and converts to HEX
 function getComplementary(h, s, l) {
     // Calculations are based on the following tutorials:
     // https://www.had2know.org/technology/hsl-rgb-color-converter.html 
