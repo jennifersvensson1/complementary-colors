@@ -32,8 +32,6 @@ function getNewColors() {
     let index = Math.floor(Math.random() * colors.length);
     let color = colors[index];
 
-    document.getElementById("firstColor").style.backgroundColor = color.hex;
-
     // Get complementary color from hsl
     let compHex = getComplementary(color.hsl.h, color.hsl.s, color.hsl.l);
 
